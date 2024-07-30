@@ -35,7 +35,7 @@
                                                     <th> No </th>
                                                     <th> Image </th>
                                                     <th> Title </th>
-                                                    <th> Desctiption </th>
+                                                    <th> Description </th>
                                                     <th> Tag Name </th>
                                                     <th> Category Name </th>
                                                     <th> Action </th>

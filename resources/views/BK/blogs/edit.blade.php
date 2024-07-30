@@ -1,16 +1,16 @@
 @extends('BK.master')
-@section('title', 'Edit Package')
+@section('title', 'Edit Blog')
 @section('breadcrumb')
     <div class="page-header">
-        <h3 class="page-title">All Packages</h3>
+        <h3 class="page-title">All blogs</h3>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
 
 
                 <li class="breadcrumb-item">Dashboard</li>
-                <li class="breadcrumb-item">Packages</li>
-                <li class="breadcrumb-item active">Edit {{ $package->name }}</li>
+                <li class="breadcrumb-item">blogs</li>
+                <li class="breadcrumb-item active">Edit {{ $blog->name }}</li>
             </ol>
         </nav>
     </div>
@@ -20,7 +20,7 @@
     <section class="section dashboard">
         <div class="row">
             <div>
-                <a href="{{ route('admin.packages.index') }}" class="btn btn-dark mb-3">All packages</a>
+                <a href="{{ route('admin.blogs.index') }}" class="btn btn-dark mb-3">All blogs</a>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -28,62 +28,51 @@
                     <h5 class="card-title">Edit Product</h5>
 
                     <form method="POST" class="row g-3 needs-validation" novalidate
-                        action="{{ route('admin.packages.update', $package->id) }}" enctype="multipart/form-data">
+                        action="{{ route('admin.blogs.update', $blog->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <label for="inputNumber" class="col-sm-2 col-form-label text-dark">Package Image</label>
+                        <label for="inputNumber" class="col-sm-2 col-form-label text-dark">Blog Image</label>
                         <div class="col-sm-5">
                             <input class="form-control" name="image" type="file"
                                 accept="image/jpeg,image/png,image/jpg,image/gif">
                             <div class="invalid-feedback">Please upload your product image.</div>
                         </div>
                         <div class="col-sm-5">
-                            <img alt="{{ $package->name }}" class="image-thumbnail w-100"
-                                src="{{ asset('images/packages/' . $package->image) }}">
+                            <img alt="{{ $blog->name }}" class="image-thumbnail w-100" src="{{ $blog->image_url }}">
                         </div>
 
                         <div class="col-md-12 mb-3 form-group has-validation">
-                            <label for="exampleInputUsername1" class="text-dark">Package Name</label>
-                            <input type="text" class="form-control" name="name" value="{{ $package->name }}"
+                            <label for="exampleInputUsername1" class="text-dark">Blog Title</label>
+                            <input type="text" class="form-control" name="title" value="{{ $blog->title }}"
                                 id="name" required>
                             <div class="invalid-feedback">Please enter your product name.</div>
                         </div>
                         <div class="col-md-12 mb-3 form-group has-validation">
-                            <label for="exampleInputUsername1" class="text-dark">Package Duration</label>
-                            <input type="text" class="form-control" name="time" value="{{ $package->time }}"
-                                id="name" required>
-                            <div class="invalid-feedback">Please enter your product name.</div>
-                        </div>
-                        <div class="col-md-12 mb-3 input-group has-validation">
-                            <span class="input-group-text">MMK</span>
-                            <input type="number" name="price" value="{{ $package->price }}" class="form-control"
-                                required>
-                            <span class="input-group-text">.00</span>
-                            <div class="invalid-feedback">Please enter your price.</div>
-                        </div>
-                        <div class="col-md-12 mb-3 form-group has-validation">
-                            <label for="exampleInputUsername1" class="text-dark">Package Tag</label>
+                            <label for="exampleInputUsername1" class="text-dark">Blog Tag</label>
                             <select name="tag_id" id="inputState" class="form-select">
                                 @foreach ($tags as $tag)
-                                    <option {{ $tag->id == $package->tag_id ? 'selected' : '' }}
-                                        value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                    <option {{ $tag->id == $blog->tag_id ? 'selected' : '' }} value="{{ $tag->id }}">
+                                        {{ $tag->name }}</option>
                                 @endforeach
                             </select>
                             <div class="invalid-feedback">Please enter your price.</div>
 
                         </div>
                         <div class="col-md-12 mb-3 form-group has-validation">
-                            <label for="exampleInputUsername1" class="text-dark">Package Destination</label>
+                            <label for="exampleInputUsername1" class="text-dark">Blog Category</label>
                             <select name="category_id" id="inputState" class="form-select">
                                 @foreach ($categories as $category)
-                                    <option {{ $category->id == $package->category_id ? 'selected' : '' }}
+                                    <option {{ $category->id == $blog->category_id ? 'selected' : '' }}
                                         value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <div class="invalid-feedback">Please enter your price.</div>
 
                         </div>
-                        <textarea name="description" id="mytextarea">{{ $package->description }}</textarea>
+                        <div class="col-md-12 mb-3 form-group has-validation">
+                            <label for="exampleInputUsername1" class="text-dark">Blog Description</label>
+                            <textarea name="description" id="mytextarea">{{ $blog->description }}</textarea>
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark">Update</button>
                         </div>

@@ -34,12 +34,14 @@
                                 accept="image/jpeg,image/png,image/jpg,image/gif" required>
                             <div class="invalid-feedback">Please upload your blog image.</div>
                         </div>
-                        <div class="col-md-12 mb-3 input-group has-validation">
+                        <div class="col-md-12 mb-3 form-group has-validation">
+                            <label for="exampleInputUsername1" class="text-dark">Blog Title</label>
                             <input type="text" class="form-control" name="title" placeholder="Your Blog Name"
                                 id="name" required>
                             <div class="invalid-feedback">Please enter your blog name.</div>
                         </div>
-                        <div class="col-md-12 mb-3 input-group has-validation">
+                        <div class="col-md-12 mb-3 form-group has-validation">
+                            <label for="exampleInputUsername1" class="text-dark">Blog Tag</label>
                             <select name="tag_id" id="inputState" class="form-select">
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
@@ -47,7 +49,8 @@
                             </select>
                             <div class="invalid-feedback">Please enter your price.</div>
                         </div>
-                        <div class="col-md-12 mb-3 input-group has-validation">
+                        <div class="col-md-12 mb-3 form-group has-validation">
+                            <label for="exampleInputUsername1" class="text-dark">Blog Category</label>
                             <select name="category_id" id="inputState" class="form-select">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -55,7 +58,10 @@
                             </select>
                             <div class="invalid-feedback">Please enter your price.</div>
                         </div>
-                        <textarea name="description" id="mytextarea"></textarea>
+                        <div class="col-md-12 mb-3 form-group has-validation">
+                            <label for="exampleInputUsername1" class="text-dark">Blog Description</label>
+                            <textarea name="description" id="mytextarea"></textarea>
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark">Create</button>
                         </div>

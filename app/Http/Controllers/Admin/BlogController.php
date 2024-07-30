@@ -81,7 +81,7 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         $blog = Blog::with('category')->find($blog->id);
-        return view('BK.blogs.show', compact('Blog'));
+        return view('BK.blogs.show', compact('blog'));
     }
 
     /**
@@ -95,7 +95,7 @@ class BlogController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $blog = Blog::with('category')->find($blog->id);
-        return view('BK.blogs.edit', compact('Blog', 'tags', 'categories'));
+        return view('BK.blogs.edit', compact('blog', 'tags', 'categories'));
     }
 
     /**
@@ -108,11 +108,8 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $validation = $request->validate([
-            'name' => 'required',
-            'time' => 'required',
-            'price' => 'required',
+            'title' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpg,jpeg,png',
             'category_id' => 'required',
             'tag_id' => 'required',
         ]);
@@ -130,7 +127,17 @@ class BlogController extends Controller
                 $blog->image = $file_name;
             }
 
-            $blog->update($request->except(['image']));
+            $blog->update(
+                [
+                    'title' => $request->title,
+                    'slug' => Str::slug($request->title),
+                    'description' => $request->description,
+                    'category_id' => $request->category_id,
+                    'tag_id' => $request->tag_id,
+                    'admin_id' => auth()->guard('admin')->user()->id,
+                    'image' => $blog->image,
+                ]
+            );
 
             return redirect()->route('admin.blogs.index')->with('success', 'Blog updated successfully');
         } else {
