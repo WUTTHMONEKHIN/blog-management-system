@@ -20,8 +20,8 @@ class BlogSeeder extends Seeder
         $categories = DB::table('categories')->pluck('id');
         $tags = DB::table('tags')->pluck('id');
         $imageNames = range(1, 10);
-        $title = $faker->words(3, true);
         for ($i = 0; $i < 10; $i++) {
+            $title = $faker->words(3, true);
             DB::table('blogs')->insert([
                 'title' => $title,
                 'slug' => Str::slug($title),

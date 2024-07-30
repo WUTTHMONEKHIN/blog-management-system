@@ -37,7 +37,7 @@
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item {{ Request::is('blogs') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('blogs') || Request::is('blog/*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('blogs') }}">Blogs <span class="sr-only">(current)</span></a>
                 </li>
                 @auth

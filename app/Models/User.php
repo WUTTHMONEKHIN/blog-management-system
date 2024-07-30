@@ -28,6 +28,10 @@ class User extends Authenticatable
     {
         return asset('/images/users/' . $this->image);
     }
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

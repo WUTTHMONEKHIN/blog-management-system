@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'User\PageController@home');
 Route::get('/blogs', 'User\PageController@blogs');
+Route::get('/blog/{slug}', 'User\PageController@blog');
 Route::get('/login', 'User\AuthController@showLogin');
 Route::post('/login', 'User\AuthController@Login');
 Route::get('/register', 'User\AuthController@showRegister');

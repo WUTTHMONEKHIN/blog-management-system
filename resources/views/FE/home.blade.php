@@ -49,63 +49,32 @@
                     <span class="number">01</span> <img src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}"
                         alt="ollez" height="12px">
                 </div>
-                <h2 class="section-title wow fadeInUp">Recent Blogs<a href="#!" class="all-projects-link">View All</a>
+                <h2 class="section-title wow fadeInUp">Recent Blogs<a href="{{ url('blogs') }}"
+                        class="all-projects-link">View All</a>
                 </h2>
                 <div class="row">
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="news-card news-card-1 wow fadeInUp">
-                            <div class="card-body">
-                                <div class="author-info media">
-                                    <img src="assets/images/Team_1_Copy_2@2x.jpg" alt="author" class="author-avatar">
-                                    <div class="media-body">
-                                        <h6 class="author-name">Posted by Colabrio</h6>
-                                        <p class="news-post-date">July 5, 2019</p>
+                    @foreach ($blogs as $b)
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="news-card news-card-1 wow flipInY">
+                                <div class="card-body">
+                                    <img class="image-thumbnail w-100 mb-2" alt="{{ $b->title }}"
+                                        src="{{ $b->image_url }}">
+                                    <div class="author-info media">
+                                        <div class="media-body">
+                                            {{-- <p class="news-post-date">{{ $b->created_at->format('d F Y') }}</p> --}}
+                                            <p class="news-post-date"> {{ $b->created_at->diffForHumans() }}
+                                            </p>
+                                        </div>
                                     </div>
+                                    <div class="post-meta">
+                                        <h6 class="post-category">{{ $b->title }}</h6>
+                                    </div>
+                                    <h5 class="post-title">{!! Illuminate\Support\Str::limit(strip_tags($b->description), 50) !!}</h5>
+                                    <a href="{{ url('blog/' . $b->slug) }}" class="post-permalink">Read more </a>
                                 </div>
-                                <div class="post-meta">
-                                    <span class="post-category">Digital Strategy</span> 4 min read
-                                </div>
-                                <h5 class="post-title">The Ultimate Guide to Make Your WordPress Journal.</h5>
-                                <a href="#!" class="post-permalink">Read more </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="news-card news-card-2 wow fadeInUp">
-                            <div class="card-body">
-                                <div class="author-info media">
-                                    <img src="assets/images/Team_2_Copy_2@2x.jpg" alt="author" class="author-avatar">
-                                    <div class="media-body">
-                                        <h6 class="author-name">Posted by Stormie</h6>
-                                        <p class="news-post-date">July 5, 2019</p>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="post-category">Personal</span> 4 min read
-                                </div>
-                                <h5 class="post-title">The Highly Contemporary UI/UX Design from a london.</h5>
-                                <a href="#!" class="post-permalink">Read more </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <div class="news-card news-card-3 wow fadeInUp">
-                            <div class="card-body">
-                                <div class="author-info media">
-                                    <img src="assets/images/Team_3_Copy_2@2x.jpg" alt="author" class="author-avatar">
-                                    <div class="media-body">
-                                        <h6 class="author-name">Posted by Angela</h6>
-                                        <p class="news-post-date">July 5, 2019</p>
-                                    </div>
-                                </div>
-                                <div class="post-meta">
-                                    <span class="post-category">Personal</span> 4 min read
-                                </div>
-                                <h5 class="post-title">A Color Exercise for our Brand’s Illustration </h5>
-                                <a href="#!" class="post-permalink">Read more </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
