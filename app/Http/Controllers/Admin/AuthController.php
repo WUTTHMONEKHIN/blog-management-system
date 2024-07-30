@@ -22,7 +22,7 @@ class AuthController extends Controller
         $cre = request()->only('email', 'password');
         $checkAuth = Auth::guard('admin')->attempt($cre);
         if (!$checkAuth) {
-            return redirect()->back()->with('error', 'Wrong Email & Password');
+            return redirect()->back()->with('error', 'Wrong Email and Password');
         } else {
             $adminName = Auth::guard('admin')->user()->name;
             return redirect('/admin/dashboard')->with('success', 'Welcome ' . $adminName);
