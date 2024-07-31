@@ -5172,7 +5172,10 @@ a.badge-dark.focus {
 }
 
 .media-body {
+    display: flex;
     flex: 1;
+    flex-direction: column; /* Ensures content stacks vertically */
+    overflow: hidden; /* Prevents content from overflowing */
 }
 
 .list-group {
@@ -10518,6 +10521,8 @@ a.text-dark:focus {
     font-weight: 300;
     line-height: 1.44;
     color: #000000;
+    word-wrap: break-word; /* Ensures long words or links are wrapped */
+    word-break: break-word; /* Additional support for wrapping */
     margin-bottom: 44px;
 }
 .landing-testimonial-card .testimonial-card-name {

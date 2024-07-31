@@ -35,6 +35,8 @@
                                                 <img src="{{ $c->user->image_url }}" alt="{{ $c->user->name }}"
                                                     class="testimonial-card-img">
                                                 <div class="media-body">
+                                                    <small
+                                                        style="color: #f7b500">{{ $c->created_at->diffForHumans() }}</small>
                                                     <p class="testimonial-card-content">
                                                         {{ $c->comment }}
                                                     </p>
