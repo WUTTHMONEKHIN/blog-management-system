@@ -6,8 +6,10 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Subscribe;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BlogController extends Controller
 {
@@ -58,7 +60,7 @@ class BlogController extends Controller
                 $image->move(public_path('images/blogs'), $imageName);
                 $validation['image'] = $imageName;
             }
-            Blog::create([
+            $blog = Blog::create([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
                 'description' => $request->description,
@@ -67,6 +69,8 @@ class BlogController extends Controller
                 'tag_id' => $request->tag_id,
                 'admin_id' => auth()->guard('admin')->user()->id,
             ]);
+            $subscribers = Subscribe::all(); // Fetch all subscribers
+            $this->sendReservationNotifications($subscribers, $blog->title); // Send notifications
             return redirect()->route('admin.blogs.index')->with('success', 'Blog Added Successfully');
         }
         return redirect()->back()->with('error', 'Something went wrong');
@@ -158,5 +162,20 @@ class BlogController extends Controller
         }
         $blog->delete();
         return redirect()->route('admin.blogs.index')->with('success', 'Blog deleted successfully');
+    }
+    private function sendReservationNotifications($subscribers, $blogTitle)
+    {
+        foreach ($subscribers as $subscriber) {
+            Mail::html(
+                '<p>Dear Subscriber,</p>
+                <p>We are excited to inform you that a new blog post titled <strong>' . $blogTitle . '</strong> has been published on our website. We believe this new post will be of great interest to you.</p>
+                <p>Thank you for your continued support. Stay tuned for more updates and exciting content!</p>
+                <p>Best regards,<br>The Oleez Blog Team</p>',
+                function ($m) use ($subscriber) {
+                    $m->to($subscriber->email); // Send to each subscriber's email
+                    $m->subject('New Blog Post Available from Oleez Blog Management System');
+                }
+            );
+        }
     }
 }

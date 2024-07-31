@@ -36,8 +36,6 @@ class AuthController extends Controller
     }
     public function Register(Request $request)
     {
-
-
         // Validate the request data
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -77,7 +75,7 @@ class AuthController extends Controller
             $user = User::where('id', $id)->first();
             // $user->password = $user->password;
             if ($request->hasFile('image')) {
-                if ($user->image && file_exists(public_path('/images/users') . '/' . $user->image)) {
+                if ($user->image !== "default.png" && $user->image && file_exists(public_path('/images/users') . '/' . $user->image)) {
                     unlink(public_path('/images/users') . '/' . $user->image);
                 }
                 $file = $request->file('image');
@@ -115,35 +113,10 @@ class AuthController extends Controller
         return redirect('/login')->with('success', 'Password change successfully. Please login with new password');
     }
 
-    // public function userProfile()
-    // {
-    //     $orders = Order::where('user_id', auth()->user()->id)->with('user', 'payment')->get();
-
-    //     // Loop through each order to attach products based on package_ids
-    //     $orders->each(function ($order) {
-    //         // Decode the JSON string to retrieve package_ids array
-    //         $productIds = json_decode($order->package_ids);
-
-    //         // Fetch products based on package_ids
-    //         $products = Package::whereIn('id', $productIds)->get();
-
-    //         // Attach products to the order model
-    //         $order->package_ids = $products;
-    //     });
-    //     $orders->each(function ($order) {
-    //         // Decode the JSON string to retrieve package_prices and package_quantities arrays
-    //         $order->package_prices = json_decode($order->package_prices);
-    //         $order->package_quantities = json_decode($order->package_quantities);
-    //     });
-    //     $cartdata = Cart::where('user_id', auth()->guard('web')->user()->id)->get();
-    //     // Calculate total quantity in the cart
-    //     $totalQuantity = $cartdata->sum('quantity');
-    //     return view('user.userProfile', compact('orders', 'totalQuantity'));
-    //     // $userId = Auth::user()->id;
-    //     // $cart = Cart::where('user_id', $userId)->get();
-    //     // $totalQuantity = $cart->sum('quantity');
-    //     // return view('user.userProfile', compact('cart', 'totalQuantity'));
-    // }
+    public function userProfile()
+    {
+        return view('FE.userProfile');
+    }
 
     public function Logout()
     {

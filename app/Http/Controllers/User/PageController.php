@@ -25,11 +25,10 @@ class PageController extends Controller
     }
     public function blog($slug)
     {
+        $blog = Blog::where('slug', request()->slug)->with('category', 'tag')->firstOrFail();
         $categories = Category::has('blogs')->get();
         $tags = Tag::has('blogs')->get();
-        $blogId = Blog::where('slug', $slug)->first();
-        $comments = Comment::where('blog_id', $blogId->id)->get();
-        $blog = Blog::where('slug', request()->slug)->with('category', 'tag')->firstOrFail();
+        $comments = Comment::where('blog_id', $blog->id)->latest()->get();
         return view('FE.blog', compact('categories', 'tags', 'blog', 'comments'));
     }
     public function blogsByTag($slug)

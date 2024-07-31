@@ -17,7 +17,6 @@ Route::get('/', 'User\PageController@home');
 Route::get('/blogs', 'User\PageController@blogs');
 Route::get('/blogs/tag/{slug}', 'User\PageController@blogsByTag');
 Route::get('/blogs/category/{slug}', 'User\PageController@blogsByCategory');
-Route::post('/subscribe', 'Admin\SubscribeController@subscribe');
 Route::get('/blog/{slug}', 'User\PageController@blog');
 Route::get('/login', 'User\AuthController@showLogin');
 Route::post('/login', 'User\AuthController@Login');
@@ -25,9 +24,11 @@ Route::get('/register', 'User\AuthController@showRegister');
 Route::post('/register', 'User\AuthController@Register');
 Route::group(['middleware' => 'RedirectIfNotAuth'], function () {
     Route::get('/logout', 'User\AuthController@Logout');
-    Route::get('/userProfile', 'User\AuthController@userProfile')->name('userProfile');
+    Route::get('/profile', 'User\AuthController@userProfile')->name('userProfile');
     Route::post('/updateProfile/{id}', 'User\AuthController@updateProfile')->name('updateProfile');
     Route::post('/changePwd/{id}', 'User\AuthController@changePwd')->name('changePwd');
+    Route::post('/blogs/comment', 'User\CommentController@store')->name('storeComment');
+    Route::post('/subscribe', 'Admin\SubscribeController@subscribe');
 });
 
 

@@ -14,7 +14,22 @@
     <script src="{{ asset('assets/FE/assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/FE/assets/js/loader.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('datatable/toastify.min.css') }}">
-
+    <link rel="shortcut icon" href="{{ asset('assets/BK/images/favicon.png') }}" />
+    <style>
+        .badge {
+            position: absolute;
+            top: -25px;
+            right: -52px;
+            background-color: #ff5733;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            transform: rotate(45deg);
+            transform-origin: 0 0;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            border-radius: 0.25rem;
+        }
+    </style>
 </head>
 
 <body>

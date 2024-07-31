@@ -11,15 +11,16 @@
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item {{ Request::is('blogs/*') || Request::is('blog/*') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ Request::is('blogs/*') || Request::is('blogs') || Request::is('blog/*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('blogs') }}">Blogs <span class="sr-only">(current)</span></a>
                 </li>
                 @auth
-                    <li class="nav-item dropdown {{ Request::is('userProfile') ? 'active' : '' }}">
+                    <li class="nav-item dropdown {{ Request::is('profile') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</a>
                         <div class="dropdown-menu" aria-labelledby="blogDropdown">
-                            <a class="dropdown-item" href="blog-standard.html">My Profile</a>
+                            <a class="dropdown-item" href="{{ url('profile') }}">My Profile</a>
                             <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
                         </div>
                     </li>

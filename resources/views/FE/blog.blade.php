@@ -49,8 +49,11 @@
                     @auth
                         <div class="comment-section wow fadeInUp">
                             <h5 class="section-title">Leave a comment</h5>
-                            <form action="POST" class="oleez-comment-form">
+                            <form action="{{ route('storeComment') }}" method="POST" class="oleez-comment-form">
+                                @csrf
                                 <div class="row">
+                                    <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="slug" id="slug" value="{{ $blog->slug }}">
                                     <div class="form-group col-12">
                                         <label for="comment">*Message</label>
                                         <textarea name="comment" id="comment" rows="10" class="oleez-textarea" required></textarea>

@@ -139,7 +139,7 @@ class AdminController extends Controller
         // Handle image upload if provided
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($user->image && file_exists(public_path('/images/admins') . '/' . $user->image)) {
+            if ($user->image && $user->image !== "default.png" && file_exists(public_path('/images/admins') . '/' . $user->image)) {
                 unlink(public_path('/images/admins') . '/' . $user->image);
             }
 
