@@ -10,11 +10,13 @@
                     <div class="row">
                         <div class="col-md-6 footer-widget-text">
                             <h6 class="widget-title">PHONE</h6>
-                            <p class="widget-content">+80 (0)5 12 34 95 89</p>
+                            <p class="widget-content">
+                                <a href="tel:+959965585369" style="tetext-decoration: unset; color:white">+95 (9) 965585369</a>
+                            </p>
                         </div>
                         <div class="col-md-6 footer-widget-text">
                             <h6 class="widget-title">ADDRESS</h6>
-                            <p class="widget-content">33 rue Burdeau 69089 <br> Paris France</p>
+                            <p class="widget-content">Letpadan , <br> Bago , <br> Myanmar</p>
                         </div>
                     </div>
                 </div>
@@ -48,8 +50,8 @@
         </div>
         <div class="footer-text">
             <p class="mb-md-0">© <?= date('Y') ?>, Blog System. Made with passion by <a
-                    href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer"
-                    class="text-reset">BootstrapDash</a>.</p>
+                    href="https://GitHub.com/WUTTHMONEKHIN" target="_blank" rel="noopener noreferrer"
+                    class="text-reset">Wutthmone Khin</a>.</p>
             <p class="mb-0">All right reserved.</p>
         </div>
     </div>
