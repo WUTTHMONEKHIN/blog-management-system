@@ -3,9 +3,9 @@
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="{{ url('/') }}"><img
-                        src="{{ asset('assets/BK/images/logo.svg') }}" alt="logo" /></a>
+                        src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}"><img
-                        src="{{ asset('assets/BK/images/logo-mini.svg') }}" alt="logo" /></a>
+                        src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}" alt="logo" /></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">

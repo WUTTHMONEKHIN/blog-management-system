@@ -27,11 +27,11 @@
                         <div class="col-lg-4 mx-auto">
                             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                                 <div class="brand-logo">
-                                    <a href="{{ url('/') }}"><img src="{{ asset('assets/BK/images/logo.svg') }}"
-                                            alt="logo"></a>
+                                    <a href="{{ url('/') }}"><img
+                                            src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}" alt="logo"></a>
                                 </div>
                                 <h4>Hello! let's get started</h4>
-                                <h6 class="font-weight-light">Sign in to continue.</h6>
+                                <h6 class="font-weight-light">Sign up to continue.</h6>
                                 <form class="pt-3" action="{{ url('/register') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
