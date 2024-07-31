@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'User\PageController@home');
 Route::get('/blogs', 'User\PageController@blogs');
+Route::post('/subscribe', 'Admin\SubscribeController@subscribe');
 Route::get('/blog/{slug}', 'User\PageController@blog');
 Route::get('/login', 'User\AuthController@showLogin');
 Route::post('/login', 'User\AuthController@Login');
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::resource('/tags', 'TagController');
     Route::resource('/admins', 'AdminController');
     Route::resource('/users', 'UserController');
+    Route::get('/subscribers', 'UserController@subscribers');
     Route::resource('/blogs', 'BlogController');
     Route::get('/profile/{admin}', 'AdminController@showProfile');
 });

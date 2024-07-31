@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subscribe;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -84,5 +85,10 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully');
+    }
+    public function subscribers()
+    {
+        $subscribers = Subscribe::with('user')->latest()->get();
+        return view('BK.users.subscriber', compact('subscribers'));
     }
 }

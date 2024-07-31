@@ -43,6 +43,13 @@
 
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('admin/subscribers') ? 'pp' : '' }}">
+                <a href="{{ url('admin/subscribers') }}" class="nav-link">
+                    <i class="mdi mdi-bell-ring menu-icon" style="color: unset"></i>
+                    <span>Subscribers</span>
+
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

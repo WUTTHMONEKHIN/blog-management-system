@@ -48,7 +48,11 @@
                                     <div class="mt-3 text-center">
                                         <button type="submit"
                                             class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                            href="#">SIGN IN</button>
+                                            href="#">SIGN UP</button>
+                                    </div>
+                                    <div class="text-center mt-4 font-weight-light">
+                                        Already have an account?  <a href="{{ url('login') }}"
+                                            class="text-primary">Sign In</a>
                                     </div>
                                 </form>
                             </div>

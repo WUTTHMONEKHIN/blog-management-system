@@ -29,18 +29,21 @@
                 </div>
             </div>
             @auth
-                <div class="row">
-                    <div class="col-md-4 wow fadeInRight">
-                        <form action="POST" class="oleez-contact-form">
-                            <div class="form-group">
-                                <label for="fullName" style="color:#f7b500;">Your Email Address</label>
-                                <input readonly type="email" class="oleez-input" id="fullName"
-                                    value="{{ auth()->user()->email }}" name="email" required>
-                            </div>
-                            <button type="submit" class="btn btn-submit">Subscribe</button>
-                        </form>
+                @if (!$subscribe)
+                    <div class="row">
+                        <div class="col-md-4 wow fadeInRight">
+                            <form action="{{ url('subscribe') }}" class="oleez-contact-form" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="fullName" style="color:#f7b500;">Your Email Address</label>
+                                    <input readonly type="email" class="oleez-input" id="fullName"
+                                        value="{{ auth()->user()->email }}" name="email" required>
+                                </div>
+                                <button type="submit" class="btn btn-submit">Subscribe</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                @endif
             @endauth
         </div>
         <div class="footer-text">
