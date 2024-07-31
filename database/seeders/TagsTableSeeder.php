@@ -16,16 +16,16 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
         $tags = [
-            'Tech',
-            'Lifestyle',
-            'Health',
-            'Travel',
-            'Food & Drink',
-            'Education',
-            'Finance',
-            'Entertainment',
-            'Fashion',
-            'Sports'
+            'Innovate',
+            'Wellness',
+            'Adventure',
+            'Culinary',
+            'Learning',
+            'Wealth',
+            'Cinema',
+            'Style',
+            'Fitness',
+            'Trends',
         ];
 
         foreach ($tags as $tag) {

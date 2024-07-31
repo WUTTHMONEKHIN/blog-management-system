@@ -1,6 +1,6 @@
 <header class="oleez-header">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}"
+        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}"
                 alt="Oleez"></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav"
             aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +11,7 @@
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item {{ Request::is('blogs') || Request::is('blog/*') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('blogs/*') || Request::is('blog/*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('blogs') }}">Blogs <span class="sr-only">(current)</span></a>
                 </li>
                 @auth
@@ -29,7 +29,8 @@
                         <a class="nav-link" href="{{ url('login') }}">Login <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('register') }}">Register <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url('register') }}">Register <span
+                                class="sr-only">(current)</span></a>
                     </li>
                 @endguest
             </ul>

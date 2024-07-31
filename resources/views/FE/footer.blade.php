@@ -47,7 +47,7 @@
             @endauth
         </div>
         <div class="footer-text">
-            <p class="mb-md-0">© <?= date('Y') ?>, oleez Theme. Made with passion by <a
+            <p class="mb-md-0">© <?= date('Y') ?>, Blog System. Made with passion by <a
                     href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer"
                     class="text-reset">BootstrapDash</a>.</p>
             <p class="mb-0">All right reserved.</p>

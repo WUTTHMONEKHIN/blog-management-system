@@ -18,18 +18,34 @@ class PageController extends Controller
     }
     public function blogs()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
         $blogs = Blog::latest()->paginate('3');
+        $categories = Category::has('blogs')->get();
+        $tags = Tag::has('blogs')->get();
         return view('FE.blogs', compact('categories', 'tags', 'blogs'));
     }
     public function blog($slug)
     {
-        $categories = Category::all();
-        $tags = Tag::all();
+        $categories = Category::has('blogs')->get();
+        $tags = Tag::has('blogs')->get();
         $blogId = Blog::where('slug', $slug)->first();
         $comments = Comment::where('blog_id', $blogId->id)->get();
-        $blog = Blog::where('slug', request()->slug)->with('category', 'tag')->first();
+        $blog = Blog::where('slug', request()->slug)->with('category', 'tag')->firstOrFail();
         return view('FE.blog', compact('categories', 'tags', 'blog', 'comments'));
+    }
+    public function blogsByTag($slug)
+    {
+        $categories = Category::has('blogs')->get();
+        $tags = Tag::has('blogs')->get();
+        $tagId = Tag::where('slug', $slug)->first();
+        $blogs = Blog::where('tag_id', $tagId->id)->paginate('3');
+        return view('FE.blogs-tag', compact('categories', 'tags', 'blogs'));
+    }
+    public function blogsByCategory($slug)
+    {
+        $categories = Category::has('blogs')->get();
+        $tags = Tag::has('blogs')->get();
+        $categoryId = Category::where('slug', $slug)->first();
+        $blogs = Blog::where('category_id', $categoryId->id)->paginate('3');
+        return view('FE.blogs-tag', compact('categories', 'tags', 'blogs'));
     }
 }

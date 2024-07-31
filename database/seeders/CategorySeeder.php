@@ -17,15 +17,15 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             'Technology ',
-            'Lifestyle ',
-            'Health ',
-            'Travel ',
-            'Food & Drink ',
-            'Education ',
-            'Finance ',
-            'Entertainment ',
-            'Fashion',
-            'Sports'
+            'Lifestyle',
+            'Health & Wellness ',
+            'Travel & Adventure',
+            'Food & Beverages ',
+            'Education & Learning',
+            'Finance & Investing ',
+            'Entertainment & Media',
+            'Fashion & Style ',
+            'Sports & Fitness',
         ];
         foreach ($categories as $category) {
             DB::table('categories')->insert([

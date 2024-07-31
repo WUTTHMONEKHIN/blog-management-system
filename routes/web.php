@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'User\PageController@home');
 Route::get('/blogs', 'User\PageController@blogs');
+Route::get('/blogs/tag/{slug}', 'User\PageController@blogsByTag');
+Route::get('/blogs/category/{slug}', 'User\PageController@blogsByCategory');
 Route::post('/subscribe', 'Admin\SubscribeController@subscribe');
 Route::get('/blog/{slug}', 'User\PageController@blog');
 Route::get('/login', 'User\AuthController@showLogin');

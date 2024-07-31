@@ -45,10 +45,6 @@
     <section class="oleez-landing-section oleez-landing-section-news oleez-landing-section-projects">
         <div class="container">
             <div class="oleez-landing-section-content">
-                <div class="oleez-landing-section-verticals wow fadeIn">
-                    <span class="number">01</span> <img src="{{ asset('assets/FE/assets/images/Logo_2.svg') }}"
-                        alt="ollez" height="12px">
-                </div>
                 <h2 class="section-title wow fadeInUp">Recent Blogs<a href="{{ url('blogs') }}"
                         class="all-projects-link">View All</a>
                 </h2>

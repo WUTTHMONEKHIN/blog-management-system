@@ -14,8 +14,9 @@
                         <p>{!! $blog->description !!}</p>
                     </div>
                     <div class="post-tags wow fadeInUp">
-                        <a href="#!" class="post-tag">{{ $blog->category->name }}</a>
-                        <a href="#!" class="post-tag">{{ $blog->tag->name }}</a>
+                        <a href="{{ url('blogs/category/' . $blog->category->slug) }}"
+                            class="post-tag">{{ $blog->category->name }}</a>
+                        <a href="{{ url('blogs/tag/' . $blog->tag->slug) }}" class="post-tag">{{ $blog->tag->name }}</a>
                     </div>
                     <section class="oleez-landing-section-testimonials">
                         <div class="container">
@@ -69,7 +70,7 @@
                         <h5 class="widget-title">Tags</h5>
                         <div class="widget-content">
                             @foreach ($tags as $t)
-                                <a href="#!" class="post-tag">{{ $t->name }}</a>
+                                <a href="{{ url('blogs/tag/' . $t->slug) }}" class="post-tag">{{ $t->name }}</a>
                             @endforeach
 
                         </div>
@@ -78,7 +79,7 @@
                         <h5 class="widget-title">Categories</h5>
                         <div class="widget-content">
                             @foreach ($categories as $c)
-                                <a href="#!" class="post-tag">{{ $c->name }}</a>
+                                <a href="{{ url('blogs/category/' . $c->slug) }}" class="post-tag">{{ $c->name }}</a>
                             @endforeach
                         </div>
                     </div>
