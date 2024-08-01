@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oleez :: Blog</title>
+    <title>Oleez :: @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/FE/assets/vendors/animate.css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/FE/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/FE/assets/vendors/animate.css/animate.min.css') }}">

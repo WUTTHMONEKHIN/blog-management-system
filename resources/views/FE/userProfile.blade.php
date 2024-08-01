@@ -1,4 +1,5 @@
 @extends('FE.master')
+@section('title','My Profile')
 @section('content')
     <div class="untree_co-section" style="padding-bottom: 2rem;">
         <div class="container">

@@ -45,6 +45,6 @@ class PageController extends Controller
         $tags = Tag::has('blogs')->get();
         $categoryId = Category::where('slug', $slug)->first();
         $blogs = Blog::where('category_id', $categoryId->id)->paginate('3');
-        return view('FE.blogs-tag', compact('categories', 'tags', 'blogs'));
+        return view('FE.blogs-category', compact('categories', 'tags', 'blogs'));
     }
 }

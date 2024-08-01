@@ -1,4 +1,5 @@
 @extends('FE.master')
+@section('title','Home')
 @section('content')
     <section>
         <div class="container wow fadeIn">

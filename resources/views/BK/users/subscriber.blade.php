@@ -1,5 +1,5 @@
 @extends('BK.master')
-@section('title', 'subscribers')
+@section('title', 'Subscribers')
 @section('breadcrumb')
     <div class="page-header">
         <h3 class="page-title">All subscribers</h3>

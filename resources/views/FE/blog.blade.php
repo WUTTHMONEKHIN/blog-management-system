@@ -1,4 +1,5 @@
 @extends('FE.master')
+@section('title','Blog')
 @section('content')
     <main class="blog-post-single">
         <div class="container">
