@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <canvas id="newClient"></canvas>
-                <div class="line-chart-row-title"><a href="{{ url('admin/blogs') }}"
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/blogs') }}"
                         style="color: #000; text-decoration: unset">MY BLOGS</a></div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <canvas id="allProducts"></canvas>
-                <div class="line-chart-row-title"><a href="{{ url('admin/categories') }}"
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/categories') }}"
                         style="color: #000; text-decoration: unset">Categories</a></div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <canvas id="transactions"></canvas>
-                <div class="line-chart-row-title"><a href="{{ url('admin/tags') }}"
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/tags') }}"
                         style="color: #000; text-decoration: unset">TAGS</a></div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <canvas id="invoices"></canvas>
-                <div class="line-chart-row-title"><a href="{{ url('admin/users') }}"
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/users') }}"
                         style="color: #000; text-decoration: unset">Users</a></div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <canvas id="projects"></canvas>
-                <div class="line-chart-row-title"><a href="{{ url('admin/admins') }}"
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/admins') }}"
                         style="color: #000; text-decoration: unset">Admins</a>
                 </div>
             </div>
@@ -77,8 +77,8 @@
                     </div>
                 </div>
                 <canvas id="orderRecieved"></canvas>
-                <div class="line-chart-row-title"><a href="#!"
-                        style="color: #000; text-decoration: unset">Suscribers</a></div>
+                <div class="line-chart-row-title"><a class="hh" href="{{ url('admin/subscribers') }}"
+                        style="color: #000; text-decoration: unset">Subscribers</a></div>
             </div>
         </div>
     </div>

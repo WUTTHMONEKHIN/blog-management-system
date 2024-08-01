@@ -12680,7 +12680,7 @@ fieldset:disabled .btn {
 }
 
 .nav-link:hover, .nav-link:focus {
-  color: #0a58ca;
+  color: #0a58ca !important;
 }
 
 .nav-link.disabled {
@@ -24130,5 +24130,8 @@ dl li {
     right: 0;
   }
 }
-
+.hh:hover{
+  color: blue !important;
+  text-decoration: none !important;
+}
 /*# sourceMappingURL=maps/style.css.map */
