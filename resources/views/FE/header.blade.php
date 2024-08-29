@@ -30,10 +30,10 @@
                 @endauth
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('login') }}">Login <span class="sr-only">(current)</span></a>
+                        <a class="mt-3 nav-link" href="{{ url('login') }}">Login <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('register') }}">Register <span
+                        <a class="mt-3 nav-link" href="{{ url('register') }}">Register <span
                                 class="sr-only">(current)</span></a>
                     </li>
                 @endguest
