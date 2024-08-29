@@ -9,16 +9,19 @@
         <div class="collapse navbar-collapse" id="oleezMainNav">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="mt-3 nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li
                     class="nav-item {{ Request::is('blogs/*') || Request::is('blogs') || Request::is('blog/*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ url('blogs') }}">Blogs <span class="sr-only">(current)</span></a>
+                    <a class="mt-3  nav-link" href="{{ url('blogs') }}">Blogs <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 @auth
-                    <li class="nav-item dropdown {{ Request::is('profile') ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" data-toggle="dropdown"
+                    <li class="d-flex nav-item dropdown {{ Request::is('profile') ? 'active' : '' }}">
+                        <a class="mt-3 nav-link dropdown-toggle" href="#!" id="blogDropdown" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</a>
+                        <img class="rounded-circle" width="50px" height="50px" src="{{ auth()->user()->image_url }}"
+                            alt="profile" />
                         <div class="dropdown-menu" aria-labelledby="blogDropdown">
                             <a class="dropdown-item" href="{{ url('profile') }}">My Profile</a>
                             <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
