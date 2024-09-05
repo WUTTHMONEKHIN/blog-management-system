@@ -38,6 +38,7 @@
                                                     <th> Description </th>
                                                     <th> Tag Name </th>
                                                     <th> Category Name </th>
+                                                    <th> Like Count </th>
                                                     <th> Action </th>
                                                 </tr>
                                             </thead>
@@ -53,6 +54,7 @@
                                                         <td>{!! Illuminate\Support\Str::limit(strip_tags($p->description), 150) !!}</td>
                                                         <td>{{ $p->tag->name }}</td>
                                                         <td>{{ $p->category->name }}</td>
+                                                        <td>{{ $p->likes_count }}</td>
                                                         <td> <a href="{{ route('admin.blogs.edit', $p->id) }}"
                                                                 class="btn btn-sm mt-1  btn-inverse-info">Edit</a>
                                                             <a href="{{ route('admin.blogs.show', $p->id) }}"

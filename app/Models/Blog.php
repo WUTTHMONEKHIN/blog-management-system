@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'slug', 'image', 'description', 'category_id', 'tag_id', 'admin_id'];
-    protected $appends = ['image_url'];
+    protected $appends = ['image_url', 'like_count'];
     public function getImageUrlAttribute()
     {
         return asset('/images/blogs/' . $this->image);
@@ -25,5 +25,14 @@ class Blog extends Model
     public function comment()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function getLikeCountAttribute()
+    {
+        return $this->likes()->count();
     }
 }

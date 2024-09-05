@@ -20,8 +20,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::with('category', 'tag')->latest()->get();
-        // return ($blogs);
+        $blogs = Blog::with('category', 'tag', 'likes')->withCount('likes')->latest()->get();
         return view('BK.blogs.index', compact('blogs'));
     }
 

@@ -15,7 +15,16 @@
     <script src="{{ asset('assets/FE/assets/js/loader.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('datatable/toastify.min.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/BK/images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/fontawesome-free-6.6.0-web/css/all.min.css') }}">
     <style>
+        .post-info {
+            display: flex;
+            justify-content: space-between;
+            /* Space between the date and likes */
+            align-items: center;
+            /* Center items vertically */
+        }
+
         .badge {
             position: absolute;
             top: -25px;
@@ -49,6 +58,8 @@
                 placeholder="Search here">
         </form>
     </div>
+    <script src="{{ asset('assets/FE/assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/fontawesome-free-6.6.0-web/js/all.min.js') }}"></script>
     <script src="{{ asset('assets/FE/assets/vendors/popper.js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/FE/assets/vendors/wowjs/wow.min.js') }}"></script>
     <script src="{{ asset('assets/FE/assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>

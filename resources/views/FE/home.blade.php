@@ -1,5 +1,5 @@
 @extends('FE.master')
-@section('title','Home')
+@section('title', 'Home')
 @section('content')
     <section>
         <div class="container wow fadeIn">
@@ -58,9 +58,19 @@
                                         src="{{ $b->image_url }}">
                                     <div class="author-info media">
                                         <div class="media-body">
-                                            {{-- <p class="news-post-date">{{ $b->created_at->format('d F Y') }}</p> --}}
-                                            <p class="news-post-date"> {{ $b->created_at->diffForHumans() }}
-                                            </p>
+                                            <p class="news-post-date">{{ $b->created_at->diffForHumans() }}</p>
+                                            <div class="d-flex align-items-center">
+                                                <span class="me-2">
+                                                    <i
+                                                        class="mt-2 {{ $like_counts[$b->id] != 0 ? 'fa-solid' : 'fa-regular' }} fa-heart fa-lg"></i>
+                                                    {{ $like_counts[$b->id] }}
+                                                </span>
+                                                <span>
+                                                    <i class="ml-4 mt-2 fa-solid fa-share-nodes fa-lg"
+                                                        onclick="copyToClipboard('{{ $b->slug }}')"
+                                                        style="cursor: pointer;"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="post-meta">
@@ -76,4 +86,29 @@
             </div>
         </div>
     </section>
+    <script>
+        function copyToClipboard(slug) {
+            const url = window.location.origin + '/blog/' + slug;
+
+            const tempInput = document.createElement('input');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            Toastify({
+                text: "Copied",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "left",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function() {}
+            }).showToast();
+        }
+    </script>
 @endsection

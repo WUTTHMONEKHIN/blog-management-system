@@ -29,6 +29,7 @@ Route::group(['middleware' => 'RedirectIfNotAuth'], function () {
     Route::post('/changePwd/{id}', 'User\AuthController@changePwd')->name('changePwd');
     Route::post('/blogs/comment', 'User\CommentController@store')->name('storeComment');
     Route::post('/subscribe', 'Admin\SubscribeController@subscribe');
+    Route::post('/blog/{slug}/like', 'User\PageController@like')->name('blog.like');
 });
 
 
