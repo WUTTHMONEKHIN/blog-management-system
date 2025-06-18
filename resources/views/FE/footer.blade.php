@@ -24,8 +24,8 @@
                     <div class="row">
                         <div class="col-md-12 footer-widget-text">
                             <h6 class="widget-title">About Us</h6>
-                            <p class="widget-content">A design and development agency based in London. We create digital
-                                products that make people’s lives easier.</p>
+                            <p class="widget-content">A design and development agency based in Bago. We create digital
+                                blogs that make people’s lives easier.</p>
                         </div>
                     </div>
                 </div>

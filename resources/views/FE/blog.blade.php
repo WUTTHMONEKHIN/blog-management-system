@@ -38,7 +38,7 @@
 
                                 <div class="d-md-flex justify-content-between wow fadeInUp">
                                     <div class="testimonial-section-content">
-                                        <h2 class="section-title">What our clients say</h2>
+                                        <h2 class="section-title">What our readers say</h2>
                                     </div>
                                     <div class="testimonial-carousel-navbtn-wrapper"></div>
                                 </div>

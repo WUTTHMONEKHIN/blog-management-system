@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h5 class="card-title">Edit Product</h5>
+                    <h5 class="card-title">Edit Blog</h5>
 
                     <form method="POST" class="row g-3 needs-validation" novalidate
                         action="{{ route('admin.blogs.update', $blog->id) }}" enctype="multipart/form-data">
